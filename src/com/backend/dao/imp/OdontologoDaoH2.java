@@ -10,6 +10,8 @@ import java.util.List;
 
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 
+
+
     private final Logger LOGGER = Logger.getLogger(OdontologoDaoH2.class);
 
 
@@ -25,8 +27,6 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             connection = H2Connection.getConnection();
             connection.setAutoCommit(false);
 
-            String createSql = "DROP TABLE IF EXISTS TEST;\n" +
-                    "CREATE TABLE ODONTOLOGOS(ID INT PRIMARY KEY,MATRICULA VARCHAR(255), NOMBRE VARCHAR(255), APELLIDO VARCHAR(255));\n";
 
 
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ODONTOLOGOS (ID, MATRICULA, NOMBRE, APELLIDO) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
